@@ -13,12 +13,11 @@ const handleFormInput = e => {
 formEl.addEventListener('input', throttle(handleFormInput, 500));
 
 const handleFormSubmit = e => {
+    e.preventDefault();
     if (!dataForm.email || !dataForm.message) {
-        e.preventDefault();
         alert("Заповніть всі поля!");
         return;
     };
-    e.preventDefault();
     localStorage.removeItem(KEY_LOCAL_STORAGE);
     console.log(dataForm);
     formEl.reset();
